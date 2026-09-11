@@ -1,0 +1,15 @@
+[Unit]
+Description=__TENANT__ MCP server
+After=network.target
+
+[Service]
+Type=simple
+User=__TENANT__
+WorkingDirectory=/srv/__TENANT__/app
+EnvironmentFile=/srv/__TENANT__/.env
+ExecStart=/srv/__TENANT__/venv/bin/python server.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
