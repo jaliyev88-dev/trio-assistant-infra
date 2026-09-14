@@ -2,6 +2,8 @@ import os
 
 from fastmcp import FastMCP
 
+from email_tools import register_email_tools
+
 TENANT = os.environ["TENANT_NAME"]
 PORT = int(os.environ["MCP_PORT"])
 TOKEN = os.environ["MCP_TOKEN"]
@@ -15,6 +17,8 @@ def ping() -> str:
 
 
 mcp.tool(name=f"{TENANT}_ping")(ping)
+
+register_email_tools(mcp, TENANT, DATA_ROOT)
 
 
 if __name__ == "__main__":
