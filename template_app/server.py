@@ -20,6 +20,10 @@ mcp.tool(name=f"{TENANT}_ping")(ping)
 
 register_email_tools(mcp, TENANT, DATA_ROOT)
 
+if TENANT == "alisoy":
+    from alisoy_case_tools import register_case_tools
+    register_case_tools(mcp, DATA_ROOT)
+
 
 if __name__ == "__main__":
     mcp.run(
